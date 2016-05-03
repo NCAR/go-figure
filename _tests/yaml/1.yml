@@ -1,0 +1,17 @@
+--- 
+Joe:
+  Hacker: true
+  age: 35
+  beard: true
+  clothing: 
+    jacket: leather
+    shirt: 
+      color: red
+      cuttoff: false
+    trousers: denim
+  eyes: brown
+  hobbies: 
+    - skateboarding
+    - snowboarding
+    - go
+  name: steve

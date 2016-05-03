@@ -1,0 +1,22 @@
+{
+  "Bob": {
+    "Hacker": false,
+    "age": 0,
+    "beard": false,
+    "clothing": {
+      "jacket": "cloth",
+      "shirt": {
+        "color": "red",
+        "cuttoff": false
+      },
+      "trousers": "denim"
+    },
+    "eyes": "brown",
+    "hobbies": [
+      "skateboarding",
+      "snowboarding",
+      "go"
+    ],
+    "name": "steve"
+  }
+}
