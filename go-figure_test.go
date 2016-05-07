@@ -18,7 +18,7 @@ func TestGather(t *testing.T) {
 	}
 
 	for label, x := range tests {
-		t.Log("Running checks on %q", label)
+		t.Logf("Running checks on %q", label)
 		if len(x.f) != len(x.e) {
 			t.Errorf("Lengths do not match")
 		}
@@ -70,7 +70,7 @@ func TestParse(t *testing.T) {
 	}
 
 	for name, x := range tests {
-		t.Log("Running checks %q", name)
+		t.Logf("Running checks %q", name)
 		testor(x)
 	}
 	// type x struct {

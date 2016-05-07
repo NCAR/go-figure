@@ -1,13 +1,15 @@
 language: go
+sudo: false
 go: 
  - 1.4.2
  - 1.5.1
  - release
-# - tip
 
 script:
- - go test -v ./...
-
+  - go get golang.org/x/tools/cmd/cover
+  - go get github.com/mattn/goveralls
+  - go test -v -covermode=count -coverprofile=coverage.out
 
 after_success:
+  - goveralls -coverprofile=coverage.out -service=travis-ci -repotoken kgXMSYancfuXbkMIY58H7ciVMeozimZeD
   - bash <(curl -s https://codecov.io/bash)
