@@ -1,3 +1,4 @@
+/*Package gofigure provide some simple utility functions around a Viper instance*/
 package gofigure
 
 import (
