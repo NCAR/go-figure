@@ -1,0 +1,32 @@
+# Folders
+_obj
+_test
+
+# Architecture specific extensions/prefixes
+*.[568vq]
+[568vq].out
+desktop.ini
+
+*.cgo1.go
+*.cgo2.c
+_cgo_defun.c
+_cgo_gotypes.go
+_cgo_export.*
+
+_testmain.go
+
+*.exe
+*.test
+*.prof
+
+#generated files
+*_gen.go
+__*.go
+rice-box.go
+
+#databases
+*.db
+*.sublime-workspace
+
+cover.out
+cover.html
