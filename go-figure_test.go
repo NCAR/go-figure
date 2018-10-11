@@ -1,9 +1,10 @@
 package gofigure
 
 import (
-	"github.com/spf13/viper"
 	"sort"
 	"testing"
+
+	"github.com/spf13/viper"
 )
 
 func TestGather(t *testing.T) {
@@ -58,7 +59,6 @@ func TestParse(t *testing.T) {
 	}
 
 	testor := func(x x) {
-
 		v := viper.New()
 		v.SetConfigType(x.f)
 		Parse(v, x.p)
@@ -73,13 +73,5 @@ func TestParse(t *testing.T) {
 		t.Logf("Running checks %q", name)
 		testor(x)
 	}
-	// type x struct {
-	// f, e
-	// }
-	// if v, e := Parse("yaml", []string{"test-a"}); e == nil {
-	// fmt.Println(v.Get("joe.hacker"), e)
-	// fmt.Println(v)
-	// } else {
-	// t.Errorf("e==", e)
-	// }
+
 }

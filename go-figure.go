@@ -2,12 +2,13 @@
 package gofigure
 
 import (
-	"github.com/spf13/viper"
 	"io"
 	"os"
 	"path/filepath"
 	"sort"
 	"strings"
+
+	"github.com/spf13/viper"
 )
 
 /*gather returns a list files located in the passed paths.  Files are parsed in
@@ -38,22 +39,27 @@ func gather(paths []string) (files sort.StringSlice) {
 
 /*Parse populates the viper instance walking through the passed paths, loading any
 files found in the directory.  It silently ignores any errors (bad files, etc)*/
-func Parse(v *viper.Viper, paths []string) {
+func Parse(v *viper.Viper, paths []string) error {
 	readers := []io.ReadCloser{}
 	for _, file := range gather(paths) {
 		if f, e := os.Open(file); e == nil {
 			readers = append(readers, f)
 		}
 	}
-	ReadFrom(v, readers)
-	return
+	return ReadFrom(v, readers)
 }
 
 /*ReadFrom populates the viper instance walking through the passed list of ReadClosers.
+
+It returns a non-nil err
 It silently ignores any errors (bad files, etc) and attempts to Close() the file afterwards*/
-func ReadFrom(v *viper.Viper, readers []io.ReadCloser) {
+func ReadFrom(v *viper.Viper, readers []io.ReadCloser) error {
 	for _, reader := range readers {
-		v.MergeConfig(reader)
 		defer reader.Close()
+		err := v.MergeConfig(reader)
+		if err != nil {
+			return err
+		}
 	}
+	return nil
 }
